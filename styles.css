@@ -642,6 +642,10 @@ ul { margin: 0 0 var(--space-sm); padding-left: 1.25rem; }
 
 .stars { color: #E0A92E; font-size: 1.1rem; letter-spacing: 2px; margin-bottom: 0.75rem; }
 
+.rating-summary { font-size: 1.05rem; color: var(--color-text); margin-top: 0.75rem; }
+.rating-summary .stars { display: inline; margin: 0; font-size: 1.05rem; }
+.rating-summary strong { color: var(--color-primary); }
+
 .testimonial blockquote { margin: 0 0 1rem; font-style: italic; color: var(--color-text); font-size: 1.05rem; }
 
 .testimonial cite {
