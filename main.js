@@ -165,6 +165,25 @@
           return;
         }
 
+        // Send form data to Zapier webhook
+        var formData = {};
+        requiredFields.forEach(function (field) {
+          if (field.name) formData[field.name] = (field.value || "").trim();
+        });
+        var messageField = form.querySelector("[name='message']");
+        if (messageField) formData.message = (messageField.value || "").trim();
+        formData.website = "Ventura Landscape Design";
+        formData.submittedAt = new Date().toISOString();
+        try {
+          fetch("https://hooks.zapier.com/hooks/catch/20117350/44fmixd/", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formData)
+          });
+        } catch (e) {
+          console.error("[Zapier Webhook Error]", e);
+        }
+
         // Show success state
         form.style.display = "none";
         if (success) {
